@@ -3,20 +3,22 @@ const mysql = require("mysql");
 const util = require('util');
 // Encrypted data
 require('dotenv').config();
+let { MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD, MYSQL_DATABASE } = process.env;
 
 
 // Use pool to reuse connections
 const pool = mysql.createPool({
     connectionLimit: 10, // default 10
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE
+    host: MYSQL_HOST,
+    user: MYSQL_USER,
+    password: MYSQL_PASSWORD,
+    database: MYSQL_DATABASE
 });
+
 
 pool.getConnection(function (err, connection) {
     if (err) throw err; // not connected!
-    console.log(`MySQL pool connected at ${process.env.MYSQL_HOST}!`);
+    console.log(`MySQL pool connected at ${MYSQL_HOST}!`);
 });
 
 

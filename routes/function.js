@@ -91,11 +91,11 @@ function reverse_colorMap(Map, colorTemplate) {
     //colorTemplate = [{ id: 1, code: 'FFFFFF', name: 'white' },...]
     //Map = {white:1, pink:2...}
     let result = {};
-    let keys = Object.keys(Map)//[white, pink, ...]
+    let keys = Object.keys(Map);//[white, pink, ...]
     for (let i = 0; i < keys.length; i++) {
         for (let j = 0; j < colorTemplate.length; j++) {
             let key = keys[i];
-            result[Map[key]] = {}
+            result[Map[key]] = {};
             result[Map[key]].code = colorTemplate[i].code;
             result[Map[key]].name = colorTemplate[i].name;
         }
@@ -110,7 +110,7 @@ function reform_response_object(productData, sizeData, sizeMap, colorData, color
     let result = {};
     for (let i = 0; i < productData.length; i++) {
         /*---Main_image Reform---*/
-        productData[i]['main_image'] = `http://3.23.162.33/${productData[i].main_image}`
+        productData[i]['main_image'] = `https://stylisher.club/${productData[i].main_image}`;
 
         /*---Size Reform---*/
         //sizeData = [{ id: 76, p_id: 1, size_id: '1' },...]
@@ -170,7 +170,7 @@ function reform_response_object(productData, sizeData, sizeMap, colorData, color
         let imageResult = [];
         for (let j = 0; j < imageData.length; j++) {
             if (productData[i].id == imageData[j].p_id) {
-                imageResult.push(`https://3.23.162.33/${imageData[j].other_image}`);
+                imageResult.push(`https://stylisher.club/${imageData[j].other_image}`);
             }
         }
         productData[i]['images'] = imageResult;
@@ -190,4 +190,4 @@ module.exports = {  //1. 為什麼我沒有export出去，在其他files也可�
     reverse_sizeMap: reverse_sizeMap,
     reverse_colorMap: reverse_colorMap,
     reform_response_object: reform_response_object
-}
+};
