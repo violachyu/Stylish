@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        li {
+            list-style: none;
+            margin: 1em 1em 1em 1em;
+        }
+
+        input {
+            margin-left: 1em;
+        }
+    </style>
+    <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+</head>
+
+<body>
+    <h3>Sign In</h3>
+    <form method="post" action='/api/1.0/user/signin' enctype='application/x-www-form-urlencoded'>
+        <li>Username: <input type="text" name="name"></li>
+        <li>Email: <input type="text" name="email"></li>
+        <li>Password: <input type="text" name="password"></li>
+        <button type="submit" name='bttn'>Submit</button>
+        <a href='/admin/signup.html'>Sign Up Here</a>
+
+        <fb:login-button scope="public_profile,email,user_birthday" onlogin="checkLoginState();">
+        </fb:login-button>
+    </form>
+
+</body>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '1328782293978544',
+            cookie: true,
+            xfbml: true,
+            version: 'v7.0'
+        });
+
+        // // FB.AppEvents.logPageView();
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+
+    };
+
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) { return; }
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    function statusChangeCallback(response) {
+        let accessToken = response.authResponse.accessToken;
+        let fetchInit = {
+            method: "POST",
+            headers: {
+                'content-type': 'application/json' //用fetch時要記得定義header
+            },
+            body: JSON.stringify({
+                'provider': 'facebook',
+                'access_token': `${accessToken}`
+            }),
+        }
+        fetch('/api/1.0/user/signin', fetchInit)
+            .then(response => {
+                let data = response.json();
+                console.log(data);
+            }); //.then是後端執行完後，回傳到前端時才會開始執行的callback
+        if (response.status === 'connected') {
+            console.log("Logged in and authenticated");
+        } else {
+            console.log('Not authenticated');
+        }
+    }
+
+    function checkLoginState() {
+        FB.getLoginStatus(function (response) {
+            statusChangeCallback(response);
+        });
+    }
+
+
+</script>
+
+</html>

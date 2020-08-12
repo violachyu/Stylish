@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Product Management</title>
+    <style>
+        * {
+            block-size: auto;
+        }
+
+        li {
+            list-style: none;
+            padding: 2px;
+        }
+
+        input,
+        textarea,
+        select {
+            margin: 1em;
+        }
+
+        textarea {
+            padding: 10% 10% 5%;
+        }
+
+        ul {
+            text-align: left;
+            padding-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h3>Create a New Product</h3>
+        <form method='post' action="/api/1.0/admin/product" enctype="multipart/form-data">
+            <h4>Basic Description</h4>
+            <ul>
+                <li>ID <input type="text" name="id"></li>
+                <li> Category
+                    <select name="category">
+                        <option value="women">Women</option>
+                        <option value="men">Men</option>
+                        <option value="accessories">Accessories</option>
+                    </select></li>
+                <li>Title<input type="text" name="title"></li>
+                <li>Description</li><textarea name="description"></textarea>
+                <li>Price<input type="number" name="price"></li>
+            </ul>
+            <hr>
+            <h4>Product Details</h4>
+            <ul>
+                <li>Texture<input type="text" name="texture"></li>
+                <li>Wash<input type="text" name="wash"></li>
+                <li>Place of Production<input type="text" name="place"></li>
+                <li>Note<input type="text" name="note"></li>
+                <li>Story</li><textarea name="story"></textarea>
+            </ul>
+            <hr>
+            <ul>
+                <li>Code<input type="text" name="code"></li>
+                <li>Name<input type="text" name="name"></li>
+                <li>Sizes<input type="text" name="sizes" value="S, M, L, XL, F"></li>
+                <li>Stock<input type="number" name="stock"></li>
+            </ul>
+
+            <hr>
+            <ul>
+                <li>Main Image<input type="file" name="mainImage"></li>
+                <li>Other Images<input type="file" name="otherImages" multiple></li>
+            </ul>
+            <button type="submit" name="createBttn">Create</button>
+
+        </form>
+
+    </header>
+    <footer>
+
+    </footer>
+</body>
+
+</html>

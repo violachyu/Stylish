@@ -1,0 +1,15 @@
+config:
+  target: "http://stylish-alb-2119849206.us-east-2.elb.amazonaws.com"
+  #target: "http://3.13.102.220:3001"
+  #target: "http://3.135.240.214:3001"
+  http:
+    pool: 20
+  phases:
+    - duration: 20
+      arrivalRate: 200
+scenarios:
+  - flow:
+    - get:
+        # url: "/api/1.0/order/payments"
+        # url: "/api/1.0/order/paymentsByMySQL"
+        url: "/api/1.0/order/paymentsByRedis"

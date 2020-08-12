@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stylish Campaign Management</title>
+    <style>
+        li {
+            list-style: none;
+            margin: 1em 1em 1em 0em;
+        }
+
+        input {
+            margin-left: 1em;
+        }
+
+        textarea {
+            width: 30em;
+            height: 10em;
+        }
+
+        button {
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <form method='post' action="/marketing_success" enctype="multipart/form-data">
+        <h3>Create a New Campaign</h3>
+        <li>Product ID<input type="text" name="camp_id"></li>
+        <li>Picture<input type="file" name="camp_picture"></li>
+        <li>Story</li>
+        <textarea name="camp_story"></textarea>
+        <button type="submit" name="camp_createBttn">Create</button>
+    </form>
+</body>
+
+</html>

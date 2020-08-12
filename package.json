@@ -1,0 +1,29 @@
+{
+  "name": "stylish",
+  "version": "1.0.0",
+  "description": "Viola Chyu 璩君芮 http://3.23.162.33/ Solution to Running server in bg: 1. Utilize Nginx to proxy port 80 2. Use nohup to keep server alive while exitting terminal Ref. https://stackoverflow.com/questions/26568135/keep-alive-express-process-after-close-the-terminal",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "artillery": "^1.6.0",
+    "aws-sdk": "^2.702.0",
+    "bcrypt": "^4.0.1",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "mysql": "^2.18.1",
+    "njwt": "^1.0.0",
+    "node-fetch": "^2.6.0",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "secure-random": "^1.1.2",
+    "validate.js": "^0.13.1"
+  }
+}

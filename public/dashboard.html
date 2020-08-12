@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        .all {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 700px;
+        }
+
+        .rev_title {
+            font-size: 50px;
+            text-align: center;
+        }
+
+        .chart_title {
+            font-size: 15px;
+            text-align: center;
+            display: block;
+        }
+
+        .top,
+        .low {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            margin: 100px 20px;
+        }
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class='all'>
+        <div class='top'>
+            <div class='wrapper'>
+                <p class='rev_title'></p>
+            </div>
+            <div class='wrapper'>
+                <p class='chart_title'>Product sold in different colors (%)</p>
+                <div id="pie" style="width:600px;height:250px;"></div>
+            </div>
+
+        </div>
+        <div class="low">
+            <div class='wrapper'>
+                <p class='chart_title'>Product sold in different price range (pc)</p>
+                <div id="histo" style="width:400px;height:250px;"></div>
+            </div>
+            <div class='wrapper'>
+                <p class='chart_title'>Top products sold in different sizes (pc)</p>
+                <div id="bar" style="width:600px;height:250px;"></div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+<script>
+    // get dashboard data
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let res = JSON.parse(this.responseText);
+            // render total rev
+            document.getElementsByClassName('rev_title')[0].innerHTML = `Total Revenue:</br> ${res.total_rev}`
+
+            // create pie chart
+            var data = [{
+                values: res.pie_data_value,
+                labels: res.pie_data_color,
+                type: 'pie'
+            }];
+
+            var layout = {
+                height: 400,
+                width: 500
+            };
+            Plotly.newPlot('pie', data, layout);
+
+            // create histogram
+            var trace = {
+                x: res.qty_per_price,
+                type: 'histogram',
+            };
+            var data = [trace];
+            var his_layout = {
+                xaxis: {
+                    title: {
+                        text: 'Price Range',
+                        font: {
+                            family: 'Courier New, monospace',
+                            size: 18,
+                            color: '#7f7f7f'
+                        }
+                    },
+                },
+                yaxis: {
+                    title: {
+                        text: 'Quantity',
+                        font: {
+                            family: 'Courier New, monospace',
+                            size: 18,
+                            color: '#7f7f7f'
+                        }
+                    }
+                }
+            };
+            Plotly.newPlot('histo', data, his_layout);
+
+            // create bar chart
+            var S = {
+                x: res.sizeS_x,
+                y: res.sizeS_y,
+                name: 'S',
+                type: 'bar'
+            };
+
+            var M = {
+                x: res.sizeM_x,
+                y: res.sizeM_y,
+                name: 'M',
+                type: 'bar'
+            };
+            var L = {
+                x: res.sizeL_x,
+                y: res.sizeL_y,
+                name: 'L',
+                type: 'bar'
+            };
+            var data = [S, M, L];
+            var bar_layout = {
+                barmode: 'stack',
+                yaxis: {
+                    title: {
+                        text: 'Quantity',
+                        font: {
+                            family: 'Courier New, monospace',
+                            size: 18,
+                            color: '#7f7f7f'
+                        }
+                    }
+                }
+            };
+            Plotly.newPlot('bar', data, bar_layout);
+
+        }
+    }
+    let url = `/api/1.0/order/data`;
+    xhr.open("GET", url, true);
+    xhr.send();
+
+
+
+
+
+
+
+
+
+    // TOTAL_REV = document.getElementsByClassName('total_rev');
+
+</script>
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>Stylish 產品資訊</title>
+    <link rel="stylesheet" type="text/css" href="product.css">
+    <style>
+        body {
+            margin: 20px 0;
+        }
+
+        .jumbotron {
+            text-align: center;
+        }
+
+        .text-left {
+            text-align: left;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+
+        .tappay-field-focus {
+            border-color: #66afe9;
+            outline: 0;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6);
+        }
+
+        .has-error .tappay-field-focus {
+            border-color: #843534;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+        }
+
+        .has-success .tappay-field-focus {
+            border-color: #2b542c;
+            -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+            box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #67b168;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="main-nav">
+            <a href="/index.html"><img class="logo" src="../image/logo.png" alt="Stylish logo"></a>
+            <a class="product_nav">女裝</a>
+            <a class="product_nav" id='men'>男裝</a>
+            <a class="product_nav">配件</a>
+            <div class='left-nav'>
+                <input class="search" type="text" placeholder="Search for products">
+                <form>
+                    <button type="submit"><img class="search_button" src="../image/search.png"></button>
+                </form>
+                <img class="nav" src="../image/cart.png" alt='cart'>
+                <a href="/profile.html"><img class="nav" src='../image/member-hover.png' alt='member'></a>
+            </div>
+        </div>
+        <div class="bottom_line"></div>
+    </header>
+    <section>
+        <div class="product_all">
+            <div class='product_section'>
+                <div class='product_col'><img id='main_img' src=""></div>
+                <div class='product_col'>
+                    <p class="product_title"></p>
+                    <p class="img_number">2020030503</p>
+                    <p class="product_price"></p>
+                    <div class="product_detail">
+                        <div class='product_color'>
+                            <p class="info">顏色</p>
+                            <div class="color_div">
+                                <div class="color_block"></div>
+                                <div class="color_block"></div>
+                                <div class="color_block"></div>
+                            </div>
+                        </div>
+                        <div class='product_size'>
+                            <p class="info">尺寸</p>
+                            <div class="size_div">
+                                <span class="size_block" id="size_a">S</span>
+                                <span class="size_block" id="size_b">M</span>
+                                <span class="size_block" id="size_c">L</span>
+                            </div>
+                        </div>
+                        <div class="product_amount">
+                            <p class="info">數量</p>
+                            <div class="chooser">
+                                <div class="op" id="-1">-</div>
+                                <div class="value">1</div>
+                                <div class="op" id="+1">+</div>
+                            </div>
+                        </div>
+                        <br>
+                        <form>
+                            <div class="form-group card-number-group">
+                                <label for="card-number" class="control-label"><span id="cardtype"></span>卡號</label>
+                                <div class="form-control card-number"></div>
+                            </div>
+                            <div class="form-group expiration-date-group">
+                                <label for="expiration-date" class="control-label">卡片到期日</label>
+                                <div class="form-control expiration-date" id="tappay-expiration-date"></div>
+                            </div>
+                            <div class="form-group cvc-group">
+                                <label for="cvc" class="control-label">卡片後三碼</label>
+                                <div class="form-control cvc"></div>
+                            </div>
+                            <button class="add_to_cart btn btn-default" type="submit">加入購物車</button>
+                        </form>
+
+
+                        <div class="product_summary">
+                            <div class="note">實品顏色依單品照為主</div>
+                            <div class="texture">棉 100%</div>
+                            <div class="description">
+                                厚薄：薄</br>
+                                彈性：無</br>
+                            </div>
+                            <div class="wash">清洗：手洗，溫水</div>
+                            <div class="place">產地：中國</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="seperator">
+                <div class="sep_title">更多產品資訊</div>
+                <div class="line"></div>
+            </div>
+            <div class="other_section">
+                <div class="story">O.N.S is all about options, which is why we took our staple polo shirt and upgraded
+                    it with slubby linen jersey, making it even lighter for those who prefer their summer style
+                    extra-breezy.</div>
+                <img class="other_img" src="">
+                <img class="other_img" src="">
+            </div>
+        </div>
+
+    </section>
+    <footer>
+        <div class="footer">
+            <div class='footer_all'>
+                <a class="footer_nav" href="">關於Stylish</a>
+                <a class="footer_nav" href="">服務條款</a>
+                <a class="footer_nav" href="">隱私政策</a>
+                <a class="footer_nav" href="">聯絡我們</a>
+                <a class="footer_nav" id='FAQ' href="">FAQ</a>
+                <div class='contact_div'>
+                    <img class='contact' src="../image/line.png">
+                    <img class='contact' src="../image/twitter.png">
+                    <img class='contact' src="../image/facebook.png">
+                </div>
+                <p class="copyright">© 2020. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://js.tappaysdk.com/tpdirect/v5.1.0"></script>
+<script>
+    // get id from product.html
+    const params = new URLSearchParams(window.location.search);
+    let id = params.get('id');
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let res = JSON.parse(this.responseText);
+            document.getElementById('main_img').setAttribute('src', res.data['main_image']);
+            document.querySelector('.product_title').innerHTML = res['data']['title'];
+            document.querySelector('.product_price').innerHTML = "TWD." + res['data']['price'];
+            document.querySelector('.note').innerHTML = res['data']['note'];
+            document.querySelector('.texture').innerHTML = res['data']['texture'];
+            document.querySelector('.description').innerHTML = res['data']['description'];
+            document.querySelector('.wash').innerHTML = res['data']['wash'];
+            document.querySelector('.place').innerHTML = res['data']['place'];
+            document.querySelector('.story').innerHTML = res['data']['story'];
+
+            for (let i = 0; i <= 2; i++) {
+                if (res.data['colors'][i]) {
+                    let color_block = document.getElementsByClassName('color_block')[i]
+                    color_block.style.backgroundColor = "#" + res.data['colors'][i]['code'];
+                    color_block.name = res.data['colors'][i]['code'];
+                } else {
+                    document.getElementsByClassName('color_block')[i].style.visibility = "hidden";
+                }
+            }
+            for (let j = 0; j < res.data.images.length; j++) {
+                document.getElementsByClassName('other_img')[j].setAttribute('src', res.data['images'][j])
+            }
+        }
+    }
+    let url = `/api/1.0/products/details?id=${id}`;
+    xhr.open("GET", url, true);
+    xhr.send();
+
+
+    // Event Listening
+    /*---Color---*/
+    for (let a = 0; a < document.querySelectorAll('.color_block').length; a++) {
+        // (WIP)change color_block border when button is clicked 
+        document.querySelectorAll('.color_block')[a].addEventListener('click', () => {
+            for (let b = 0; b < document.querySelectorAll('.color_block').length; b++) {
+                document.querySelectorAll('.color_block')[b].classList.remove("selected_color");
+                document.querySelectorAll('.color_block')[b].style.borderColor = 'lightgrey';
+            }
+            document.querySelectorAll('.color_block')[a].style.borderColor = 'black';
+            document.querySelectorAll('.color_block')[a].classList.add("selected_color");
+        })
+    }
+
+    /*---Size---*/
+    for (let a = 0; a < document.querySelectorAll('.size_block').length; a++) {
+        // (WIP)change color_block border when button is clicked 
+        document.querySelectorAll('.size_block')[a].addEventListener('click', () => {
+            for (let b = 0; b < document.querySelectorAll('.size_block').length; b++) {
+                document.querySelectorAll('.size_block')[b].classList.remove("selected_size");
+                document.querySelectorAll('.size_block')[b].style.backgroundColor = 'lightgrey';
+                document.querySelectorAll('.size_block')[b].style.color = 'black';
+            }
+            document.querySelectorAll('.size_block')[a].style.backgroundColor = 'black';
+            document.querySelectorAll('.size_block')[a].style.color = 'white';
+            document.querySelectorAll('.size_block')[a].classList.add("selected_size");
+        })
+    }
+    /*---Number---*/
+    let qtyValue = parseInt(document.getElementsByClassName('value')[0].innerHTML);
+    // number limitation
+    function limitNumberWithinRange(num, min, max) {
+        const MIN = min || 1;
+        const MAX = max || 20;
+        const parsed = parseInt(num);
+        return Math.min(Math.max(parsed, MIN), MAX)
+    }
+
+    //add
+    document.getElementById('+1').addEventListener('click', () => {
+        qtyValue += 1
+        let qtyValue_cal = limitNumberWithinRange(qtyValue, 1, 20);
+        document.getElementsByClassName('value')[0].innerHTML = qtyValue_cal;
+
+    })
+    //substract
+    document.getElementById('-1').addEventListener('click', () => {
+        qtyValue -= 1
+        let qtyValue_cal = limitNumberWithinRange(qtyValue, 1, 20);
+        document.getElementsByClassName('value')[0].innerHTML = qtyValue_cal;
+    })
+
+    /*---TapPay---*/
+    TPDirect.setupSDK(12348, 'app_pa1pQcKoY22IlnSXq5m5WP5jFKzoRG58VEXpT7wU62ud7mMbDOGzCYIlzzLF', 'sandbox')
+    TPDirect.card.setup({
+        fields: {
+            number: {
+                element: '.form-control.card-number',
+                placeholder: '**** **** **** ****'
+            },
+            expirationDate: {
+                element: document.getElementById('tappay-expiration-date'),
+                placeholder: 'MM / YY'
+            },
+            ccv: {
+                element: $('.form-control.cvc')[0],
+                placeholder: '後三碼'
+            }
+        },
+        styles: {
+            'input': {
+                'color': 'gray'
+            },
+            'input.ccv': {
+                'font-size': '16px'
+            },
+            ':focus': {
+                'color': 'black'
+            },
+            '.valid': {
+                'color': 'green'
+            },
+            '.invalid': {
+                'color': 'red'
+            },
+            '@media screen and (max-width: 400px)': {
+                'input': {
+                    'color': 'orange'
+                }
+            }
+        }
+    })
+    // listen for TapPay Field
+    TPDirect.card.onUpdate(function (update) {
+        /* Disable / enable submit button depend on update.canGetPrime  */
+        /* ============================================================ */
+
+        // update.canGetPrime === true
+        //     --> you can call TPDirect.card.getPrime()
+        // const submitButton = document.querySelector('button[type="submit"]')
+        if (update.canGetPrime) {
+            // submitButton.removeAttribute('disabled')
+            $('button[type="submit"]').removeAttr('disabled')
+        } else {
+            // submitButton.setAttribute('disabled', true)
+            $('button[type="submit"]').attr('disabled', true)
+        }
+
+
+        /* Change card type display when card type change */
+        /* ============================================== */
+
+        // cardTypes = ['visa', 'mastercard', ...]
+        var newType = update.cardType === 'unknown' ? '' : update.cardType
+        $('#cardtype').text(newType)
+
+
+
+        /* Change form-group style when tappay field status change */
+        /* ======================================================= */
+
+        // number 欄位是錯誤的
+        if (update.status.number === 2) {
+            setNumberFormGroupToError('.card-number-group')
+        } else if (update.status.number === 0) {
+            setNumberFormGroupToSuccess('.card-number-group')
+        } else {
+            setNumberFormGroupToNormal('.card-number-group')
+        }
+
+        if (update.status.expiry === 2) {
+            setNumberFormGroupToError('.expiration-date-group')
+        } else if (update.status.expiry === 0) {
+            setNumberFormGroupToSuccess('.expiration-date-group')
+        } else {
+            setNumberFormGroupToNormal('.expiration-date-group')
+        }
+
+        if (update.status.cvc === 2) {
+            setNumberFormGroupToError('.cvc-group')
+        } else if (update.status.cvc === 0) {
+            setNumberFormGroupToSuccess('.cvc-group')
+        } else {
+            setNumberFormGroupToNormal('.cvc-group')
+        }
+    })
+
+    $('form').on('submit', function (event) {
+        event.preventDefault()
+
+        // fix keyboard issue in iOS device
+        forceBlurIos()
+
+        const tappayStatus = TPDirect.card.getTappayFieldsStatus()
+        console.log(tappayStatus)
+
+        // Check TPDirect.card.getTappayFieldsStatus().canGetPrime before TPDirect.card.getPrime
+        if (tappayStatus.canGetPrime === false) {
+            alert('can not get prime')
+            return
+        }
+
+        // Get prime
+        // POST order results to /order/checkout api
+        TPDirect.card.getPrime(function (result) {
+            if (result.status !== 0) {
+                alert('get prime error ' + result.msg)
+                return
+            }
+
+            // Gather Data
+            let originalP = result.card.prime;
+            let split_price = document.querySelector('.product_price').innerHTML.split('.')[1];
+            let add_to_cart_data = {
+                name: document.getElementsByClassName('product_title')[0].innerHTML,
+                price: split_price,
+                color: document.getElementsByClassName('selected_color')[0].name,
+                size: document.getElementsByClassName('selected_size')[0].innerHTML,
+                qty: document.getElementsByClassName('value')[0].innerHTML,
+                prime: originalP
+            }
+
+            var xhr_order = new XMLHttpRequest();
+            xhr_order.onreadystatechange = function () {
+                if (xhr_order.readyState === 4 && xhr_order.status === 200) {
+                    let res = JSON.parse(xhr_order.responseText);
+                    // console.log(res);
+                    window.location.href = `/thankyou.html`;
+                }
+            }
+            let url_order = `/api/1.0/order/checkout`;
+            xhr_order.open("POST", url_order, true);
+            xhr_order.setRequestHeader('content-type', "application/json"); //告訴接收方現在的request是什麼格式
+            xhr_order.send(JSON.stringify(add_to_cart_data));
+        })
+    })
+
+    function setNumberFormGroupToError(selector) {
+        $(selector).addClass('has-error')
+        $(selector).removeClass('has-success')
+    }
+
+    function setNumberFormGroupToSuccess(selector) {
+        $(selector).removeClass('has-error')
+        $(selector).addClass('has-success')
+    }
+
+    function setNumberFormGroupToNormal(selector) {
+        $(selector).removeClass('has-error')
+        $(selector).removeClass('has-success')
+    }
+
+    function forceBlurIos() {
+        if (!isIos()) {
+            return
+        }
+        var input = document.createElement('input')
+        input.setAttribute('type', 'text')
+        // Insert to active element to ensure scroll lands somewhere relevant
+        document.activeElement.prepend(input)
+        input.focus()
+        input.parentNode.removeChild(input)
+    }
+
+    function isIos() {
+        return /iPad|iPhone|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
+
+</script>
+
+</html>

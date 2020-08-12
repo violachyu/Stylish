@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        li {
+            list-style: none;
+            margin: 1em 1em 1em 0em;
+        }
+
+        input {
+            margin-left: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Sign Up</h3>
+    <form method="post" action='/api/1.0/user/signup' enctype='application/x-www-form-urlencoded'>
+        <li>Username: <input type="text" name="name"></li>
+        <li>Email: <input type="text" name="email"></li>
+        <li>Password: <input type="text" name="password"></li>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+
+</html>

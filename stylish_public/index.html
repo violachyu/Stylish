@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <title>Home Page</title>
+
+</head>
+
+<body>
+    <header>
+        <div class="main-nav">
+            <a href="/index.html"><img class="logo" src="../image/logo.png" alt="Stylish logo"></a>
+            <a class="product_nav">女裝</a>
+            <a class="product_nav" id='men'>男裝</a>
+            <a class="product_nav">配件</a>
+            <div class='left-nav'>
+                <input class="search" type="text" placeholder="Search for products">
+                <form>
+                    <button type="submit"><img class="search_button" src="../image/search.png"></button>
+                </form>
+                <img class="nav" src="../image/cart.png" alt='cart'>
+                <a href="/profile.html"><img class="nav" src='../image/member-hover.png' alt='member'></a>
+            </div>
+        </div>
+        <div class="bottom_line"></div>
+        <div class="campaign">
+            <img class="campaign_img" src="/keyvisuals/201807202140.jpg">
+        </div>
+    </header>
+    <section>
+        <div class='topRow'>
+            <div class='product_item'>
+                <a class="detail_link"><img class='product_pic' src=""></a>
+                <div class="color_div">
+                    <div class="color_a"></div>
+                    <div class="color_b"></div>
+                    <div class="color_c"></div>
+                </div>
+                <div class="name">前開衩扭結洋裝</div>
+                <div class="price">TWD. 799</div>
+            </div>
+            <div class='product_item'>
+                <a class="detail_link"><img class='product_pic' src=""></a>
+                <div class="color_div">
+                    <div class="color_a"></div>
+                    <div class="color_b"></div>
+                    <div class="color_c"></div>
+                </div>
+                <div class="name"></div>
+                <div class="price"></div>
+            </div>
+            <div class='product_item'>
+                <a class="detail_link"><img class='product_pic' src=""></a>
+                <div class="color_div">
+                    <div class="color_a"></div>
+                    <div class="color_b"></div>
+                    <div class="color_c"></div>
+                </div>
+                <div class="name"></div>
+                <div class="price"></div>
+            </div>
+        </div>
+        <div class='bottomRow'>
+            <div class='product_item'>
+                <a class="detail_link"><img class='product_pic' src=""></a>
+                <div class="color_div">
+                    <div class="color_a"></div>
+                    <div class="color_b"></div>
+                    <div class="color_c"></div>
+                </div>
+                <div class="name"></div>
+                <div class="price"></div>
+            </div>
+            <div class='product_item'>
+                <a class="detail_link"><img class='product_pic' src=""></a>
+                <div class="color_div">
+                    <div class="color_a"></div>
+                    <div class="color_b"></div>
+                    <div class="color_c"></div>
+                </div>
+                <div class="name"></div>
+                <div class="price"></div>
+            </div>
+            <div class='product_item'>
+                <a class="detail_link"><img class='product_pic' src=""></a>
+                <div class="color_div">
+                    <div class="color_a"></div>
+                    <div class="color_b"></div>
+                    <div class="color_c"></div>
+                </div>
+                <div class="name"></div>
+                <div class="price"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class='footer_all'>
+                <a class="footer_nav" href="">關於Stylish</a>
+                <a class="footer_nav" href="">服務條款</a>
+                <a class="footer_nav" href="">隱私政策</a>
+                <a class="footer_nav" href="">聯絡我們</a>
+                <a class="footer_nav" id='FAQ' href="">FAQ</a>
+                <div class='contact_div'>
+                    <img class='contact' src="../image/line.png">
+                    <img class='contact' src="../image/twitter.png">
+                    <img class='contact' src="../image/facebook.png">
+                </div>
+                <p class="copyright">© 2020. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script>
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let res = JSON.parse(this.responseText);
+            for (let i = 0; i < res['data'].length; i++) {
+                document.getElementsByClassName('product_pic')[i].setAttribute('src', res.data[i]['main_image']);
+                document.getElementsByClassName('name')[i].innerHTML = res.data[i]['title'];
+                document.getElementsByClassName('price')[i].innerHTML = "TWD. " + res.data[i]['price'];
+                document.getElementsByClassName('color_a')[i].style.backgroundColor = "#" + res.data[i]['colors'][0]['code'];
+                if (res['data'][i].colors[1]) {
+                    document.getElementsByClassName('color_b')[i].style.backgroundColor = "#" + res.data[i]['colors'][1]['code'];
+                } else {
+                    document.getElementsByClassName('color_b')[i].style.display = "none";
+                }
+                if (res['data'][i].colors[2]) {
+                    document.getElementsByClassName('color_c')[i].style.backgroundColor = "#" + res.data[i]['colors'][2]['code'];
+                } else {
+                    document.getElementsByClassName('color_c')[i].style.display = "none";
+                }
+                for (let j = 0; j < document.getElementsByClassName('detail_link').length; j++) {
+                    console.log(document.getElementsByClassName('detail_link'));
+                    document.getElementsByClassName('detail_link')[j].setAttribute('href', `/product.html?id=${j + 1}`)
+                }
+
+            }
+        }
+    }
+    let url = "/api/1.0/products/all";
+    xhr.open("GET", url, true);
+    xhr.send();
+</script>
+
+</html>
